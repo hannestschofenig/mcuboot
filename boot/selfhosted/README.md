@@ -5,25 +5,32 @@ It emulates flash via RAM and `memcpy`. It is for testing purposes.
 
 # Building
 
-First, build mbedtls. If you recursively clone the `ext/mbedtls` submodule it
-will exist in `ext/` already, otherwise, update it:
+First, clone the repository via: 
+
 
 ```
-% cd ext
-% git submodule update mbedtls
-% cd mbdetls
+% git clone --recurse-submodules https://github.com/eembc/mcuboot.git
+% cd mcuboot
+```
+
+Next, build mbedtls.
+
+```
+% cd ext/mbedtls
 % mkdir build
 % cd build
 % cmake ..
 % make
+% cd ../../..
 ```
 
 This will create `libmbedcrypto.a` under `build/library`, which is referenced
-in `CMakeFiles.txt`.
+in `CMakeFiles.txt` of the selfhostest Mcuboot directory.
 
-Now just build the `selfhosted` example:
+Now build the `selfhosted` example:
 
 ```
+% cd boot/selfhosted
 % mkdir build
 % cd build
 % cmake ..
