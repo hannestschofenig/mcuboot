@@ -1,19 +1,19 @@
 # Introduction
 
-This is an experimental self-hosted MCUBOOT session that runs on a standard PC.
+This is an experimental, self-hosted Mcuboot version that runs on a standard PC.
 It emulates flash via RAM and `memcpy`. It is for testing purposes.
 
 # Building
 
-First, clone the repository via: 
-
+First, clone the Mcuboot repository via: 
 
 ```
 % git clone --recurse-submodules https://github.com/eembc/mcuboot.git
 % cd mcuboot
+% make generated_files
 ```
 
-Next, build mbedtls.
+Next, build MbedTLS.
 
 ```
 % cd ext/mbedtls
@@ -24,10 +24,10 @@ Next, build mbedtls.
 % cd ../../..
 ```
 
-This will create `libmbedcrypto.a` under `build/library`, which is referenced
-in `CMakeFiles.txt` of the selfhostest Mcuboot directory.
+These commands will create `libmbedcrypto.a` under `build/library`, which is referenced
+in `CMakeFiles.txt` of the selfhosted example app.
 
-Now build the `selfhosted` example:
+Finally, build the selfhosted example app called 'bootme':
 
 ```
 % cd boot/selfhosted
